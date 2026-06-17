@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="zd4_moskvina_.Page2"
+             Title="Курсы валют">
+   
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions> 
+        <!--первая колонка-->
+        <StackLayout Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Center" >
+            <Label Text="Центробанк РФ:" HorizontalOptions="Center" FontSize="Medium"/>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Label Text="USD" FontAttributes="Bold" />
+                <Label x:Name="usdTxt" Text="80.000"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Label Text="EUR" FontAttributes="Bold"/>
+                <Label x:Name="eurTxt" Text="86.000"/>
+            </StackLayout>
+        </StackLayout>
+        <!--вторая колонка-->
+        <StackLayout Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Center">
+            <Label Text="Текущая дата:" HorizontalOptions="Center" FontAttributes="Bold" FontSize="Medium"/>
+            <DatePicker x:Name="date" DateSelected="date_DateSelected" MinimumDate="01/01/2025" MaximumDate="12/31/2025" Date="06/17/2025" HorizontalOptions="Center" FontAttributes="Bold"/>
+        </StackLayout>
+
+    </Grid>
+</ContentPage>

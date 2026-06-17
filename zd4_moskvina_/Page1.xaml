@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="zd4_moskvina_.Page1"
+             Title="Кредитный калькулятор">
+    <ContentPage.Content>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <!--по строчкам добавляю label и entry-->
+            <StackLayout Grid.Row="0" Orientation="Horizontal">
+                <Label Text="Сумма кредита:" VerticalOptions="Center" />
+                <Entry x:Name="sum" WidthRequest="150" TextChanged="ValueChanged" />
+            </StackLayout>
+            
+            <StackLayout Grid.Row="1" Orientation="Horizontal">
+                <Label Text="Срок(месяцы):" VerticalOptions="Center"/>
+                <Entry x:Name="srok" WidthRequest="150" TextChanged="ValueChanged"/>
+            </StackLayout>
+            
+            <StackLayout Grid.Row="2" Orientation="Horizontal">
+                <Label Text="Вид платежа:" VerticalOptions="Center"/>
+                <Picker x:Name="typePay" WidthRequest="150" SelectedIndexChanged="typePay_SelectedIndexChanged">
+                    <Picker.Items>
+                        <x:String>Аннуитетный</x:String>
+                        <x:String>Дифференцированный</x:String>
+                        <x:String>Буллетный</x:String>
+                    </Picker.Items>
+                </Picker>
+            </StackLayout>
+            
+            <!--блок с slider-->
+            <StackLayout Grid.Row="3" Orientation="Vertical">
+                <Label Text="Процентная ставка:" VerticalOptions="Center"/>
+                <Slider x:Name="percentSl" ValueChanged="percentSl_ValueChanged" Minimum="0" Maximum="100" Value="5" HorizontalOptions="Center"/>
+                <Label x:Name="percentTxt" Text="5%" HorizontalOptions="Center"/>
+            </StackLayout>
+            
+            <!--блок с вычисляемыми строками-->
+            <StackLayout Grid.Row="4">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <StackLayout Grid.Row="0" Orientation="Horizontal">
+                        <Label Text="Ежемесячный платеж:"/>
+                        <Label x:Name="monthPay" Text="...."/>
+                    </StackLayout>
+                    <StackLayout Grid.Row="1" Orientation="Horizontal">
+                        <Label Text="Общая сумма:"/>
+                        <Label x:Name="allMoney" Text="...."/>
+                    </StackLayout>
+                    <StackLayout Grid.Row="2" Orientation="Horizontal">
+                        <Label Text="Переплата:"/>
+                        <Label x:Name="overPay" Text="...."/>
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+            
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
